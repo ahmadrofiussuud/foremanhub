@@ -147,7 +147,7 @@ const mockForemen: Mandor[] = [
   {
     id: 'm-5',
     name: 'Pak Ahmad Subagyo',
-    avatar: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&auto=format&fit=crop&q=80',
+    avatar: '/images/ahmad_portrait.png',
     rating: 4.75,
     projectsCount: 16,
     specialization: ['Pondasi & Dinding', 'Pasang Keramik/Granit', 'Renovasi Total'],
@@ -162,7 +162,7 @@ const mockForemen: Mandor[] = [
   {
     id: 'm-6',
     name: 'Pak Heri Setiawan',
-    avatar: 'https://images.unsplash.com/photo-1589790263957-22127c43c275?w=300&auto=format&fit=crop&q=80',
+    avatar: '/images/heri_portrait.png',
     rating: 4.5,
     projectsCount: 8,
     specialization: ['Renovasi Total', 'Pekerjaan Atap', 'Instalasi Listrik'],
@@ -177,7 +177,7 @@ const mockForemen: Mandor[] = [
   {
     id: 'm-7',
     name: 'Mas Rian Hidayat',
-    avatar: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=300&auto=format&fit=crop&q=80',
+    avatar: '/images/rian_portrait.png',
     rating: 4.3,
     projectsCount: 4,
     specialization: ['Pasang Keramik/Granit', 'Pengecatan & Finishing'],
@@ -192,7 +192,7 @@ const mockForemen: Mandor[] = [
   {
     id: 'm-8',
     name: 'Pak Budi Prasetya',
-    avatar: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?w=300&auto=format&fit=crop&q=80',
+    avatar: '/images/budi_portrait.png',
     rating: 4.65,
     projectsCount: 11,
     specialization: ['Instalasi Listrik', 'Taman & Eksterior', 'Pekerjaan Atap'],

@@ -471,6 +471,10 @@
   .heroRight {
     display: none;
   }
+  .catalogHeadingArea {
+    text-align: center;
+    align-items: center;
+  }
   .catalogTitle {
     font-size: 1.75rem;
   }

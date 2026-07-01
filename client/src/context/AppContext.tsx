@@ -143,6 +143,66 @@ const mockForemen: Mandor[] = [
       { title: 'Pembangunan Gudang Baja Sidoarjo', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80', year: '2025' },
       { title: 'Renovasi Struktur Rumah Mewah Sedati', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80', year: '2024' }
     ]
+  },
+  {
+    id: 'm-5',
+    name: 'Pak Ahmad Subagyo',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
+    rating: 4.75,
+    projectsCount: 16,
+    specialization: ['Pondasi & Dinding', 'Pasang Keramik/Granit', 'Renovasi Total'],
+    location: 'Sidoarjo',
+    tier: 'gold',
+    phone: '6285678901234',
+    bio: 'Berpengalaman membangun fondasi beton bertulang dan struktur tahan gempa untuk wilayah pemukiman padat. Komitmen pada kekuatan struktur utama.',
+    portfolio: [
+      { title: 'Pondasi Kompleks Perumahan Waru', image: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=600&auto=format&fit=crop&q=80', year: '2025' }
+    ]
+  },
+  {
+    id: 'm-6',
+    name: 'Pak Heri Setiawan',
+    avatar: 'https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=200&auto=format&fit=crop&q=80',
+    rating: 4.5,
+    projectsCount: 8,
+    specialization: ['Renovasi Total', 'Pekerjaan Atap', 'Instalasi Listrik'],
+    location: 'Surabaya',
+    tier: 'silver',
+    phone: '6286789012345',
+    bio: 'Spesialis peremajaan rumah kuno menjadi minimalis modern dengan penyesuaian tata udara, kelistrikan standar SNI, dan konstruksi atap galvalum berkualitas.',
+    portfolio: [
+      { title: 'Renovasi Rumah Kolonial Dharmahusada', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80', year: '2024' }
+    ]
+  },
+  {
+    id: 'm-7',
+    name: 'Mas Rian Hidayat',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80',
+    rating: 4.3,
+    projectsCount: 4,
+    specialization: ['Pasang Keramik/Granit', 'Pengecatan & Finishing'],
+    location: 'Pamekasan',
+    tier: 'bronze',
+    phone: '6287890123456',
+    bio: 'Muda dan teliti, berfokus pada estetika pemasangan granit lantai presisi tinggi tanpa nat berongga serta pengecatan dekoratif/aksen kamar tidur modern.',
+    portfolio: [
+      { title: 'Pasang Lantai Granit Masjid Pamekasan', image: 'https://images.unsplash.com/photo-1502005229762-fc1b2b812ca5?w=600&auto=format&fit=crop&q=80', year: '2025' }
+    ]
+  },
+  {
+    id: 'm-8',
+    name: 'Pak Budi Prasetya',
+    avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=80',
+    rating: 4.65,
+    projectsCount: 11,
+    specialization: ['Instalasi Listrik', 'Taman & Eksterior', 'Pekerjaan Atap'],
+    location: 'Surabaya',
+    tier: 'silver',
+    phone: '6288901234567',
+    bio: 'Ahli sistem kelistrikan pintar, instalasi lampu luar ruangan terintegrasi taman, serta pembuatan gazebo/kolam ikan minimalis dengan sistem sirkulasi teruji.',
+    portfolio: [
+      { title: 'Taman & Lampu Hias Cluster Citraland', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop&q=80', year: '2025' }
+    ]
   }
 ];
 

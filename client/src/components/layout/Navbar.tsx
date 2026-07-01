@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Hammer, Home, Search, ClipboardList, Lock, LogOut } from 'lucide-react';
+import { Hammer, Lock, LogOut, Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 import { Button } from '../common';
 
@@ -19,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onLogout,
 }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +35,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      <header className={`${styles.header} ${scrolled ? 'header-scrolled' : ''}`}>
+      <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
         <div className={`${styles.navContainer} container`}>
           {/* Logo area */}
-          <div className={styles.logoArea} onClick={() => onViewChange('landing')}>
+          <div className={styles.logoArea} onClick={() => { onViewChange('landing'); setMobileMenuOpen(false); }}>
             <div className={styles.logoIcon}>
               <Hammer size={24} />
             </div>
@@ -47,8 +48,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
           </div>
 
-          {/* Navigation Menu */}
-          <nav>
+          {/* Navigation Menu (Desktop) */}
+          <nav className={styles.desktopNav}>
             <ul className={styles.menu}>
               <li>
                 <button
@@ -81,86 +82,136 @@ export const Navbar: React.FC<NavbarProps> = ({
             </ul>
           </nav>
 
-          {/* Actions & Role Switcher */}
+          {/* Actions & Hamburger Menu Trigger */}
           <div className={styles.actions}>
-            {isLoggedIn ? (
-              <div className={styles.profilePill}>
-                <img 
-                  src={userRole === 'client' 
-                    ? "/images/client_avatar.png"
-                    : "/images/joko_portrait.png"
-                  } 
-                  alt="Foto Profil" 
-                  className={styles.profileAvatar}
-                  loading="lazy"
-                />
-                <div className={styles.profileText}>
-                  <span className={styles.profileName}>
-                    {userRole === 'client' ? 'Budi Santoso' : 'Pak Joko Susilo'}
-                  </span>
-                  <span className={styles.profileRole}>
-                    {userRole === 'client' ? 'Pemilik Rumah' : 'Mitra Mandor'}
-                  </span>
+            {/* Desktop Actions */}
+            <div className={styles.desktopActions}>
+              {isLoggedIn ? (
+                <div className={styles.profilePill}>
+                  <img 
+                    src={userRole === 'client' 
+                      ? "/images/client_avatar.png"
+                      : "/images/joko_portrait.png"
+                    } 
+                    alt="Foto Profil" 
+                    className={styles.profileAvatar}
+                    loading="lazy"
+                  />
+                  <div className={styles.profileText}>
+                    <span className={styles.profileName}>
+                      {userRole === 'client' ? 'Budi Santoso' : 'Pak Joko Susilo'}
+                    </span>
+                    <span className={styles.profileRole}>
+                      {userRole === 'client' ? 'Pemilik Rumah' : 'Mitra Mandor'}
+                    </span>
+                  </div>
+                  <button 
+                    onClick={onLogout}
+                    title="Keluar akun simulasi"
+                    className={styles.logoutBtn}
+                  >
+                    <LogOut size={14} />
+                  </button>
                 </div>
-                <button 
-                  onClick={onLogout}
-                  title="Keluar akun simulasi"
-                  className={styles.logoutBtn}
+              ) : (
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={() => onViewChange('login')}
                 >
-                  <LogOut size={14} />
-                </button>
-              </div>
-            ) : (
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => onViewChange('login')}
-              >
-                Masuk / Daftar
-              </Button>
-            )}
+                  Masuk / Daftar
+                </Button>
+              )}
+            </div>
+
+            {/* Mobile Hamburger Toggle Button */}
+            <button 
+              className={styles.hamburger}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu navigasi"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
-      </header>
 
-      {/* Frosted Bottom Navigation Bar for Mobile */}
-      <nav className={styles.bottomNav} aria-label="Navigasi Utama Mobile">
-        <div 
-          className={`${styles.bottomNavItem} ${currentView === 'landing' ? styles.bottomNavItemActive : ''}`}
-          onClick={() => onViewChange('landing')}
-          role="link"
-          tabIndex={0}
-          aria-label="Kembali ke Beranda"
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onViewChange('landing'); }}
-        >
-          <Home size={20} />
-          <span>Beranda</span>
-        </div>
-        {(!isLoggedIn || userRole !== 'mandor') && (
-          <div 
-            className={`${styles.bottomNavItem} ${currentView === 'directory' || currentView === 'detail' ? styles.bottomNavItemActive : ''}`}
-            onClick={() => onViewChange('directory')}
-            role="link"
-            tabIndex={0}
-            aria-label="Cari Mandor Proyek"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onViewChange('directory'); }}
-          >
-            <Search size={20} />
-            <span>Cari Mandor</span>
+        {/* Mobile Navigation Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className={styles.mobileNavDropdown}>
+            <ul className={styles.mobileMenuList}>
+              <li>
+                <button
+                  className={`${styles.mobileMenuLink} ${currentView === 'landing' ? styles.mobileMenuLinkActive : ''}`}
+                  onClick={() => { onViewChange('landing'); setMobileMenuOpen(false); }}
+                >
+                  Beranda
+                </button>
+              </li>
+              {(!isLoggedIn || userRole !== 'mandor') && (
+                <li>
+                  <button
+                    className={`${styles.mobileMenuLink} ${currentView === 'directory' ? styles.mobileMenuLinkActive : ''}`}
+                    onClick={() => { onViewChange('directory'); setMobileMenuOpen(false); }}
+                  >
+                    Cari Mandor
+                  </button>
+                </li>
+              )}
+              <li>
+                <button
+                  className={`${styles.mobileMenuLink} ${(currentView === 'workspace' || currentView === 'dashboard') ? styles.mobileMenuLinkActive : ''}`}
+                  onClick={() => { onViewChange(isLoggedIn ? 'dashboard' : 'workspace'); setMobileMenuOpen(false); }}
+                >
+                  Workspace
+                </button>
+              </li>
+              <li className={styles.mobileMenuDivider} />
+              <li>
+                {isLoggedIn ? (
+                  <div className={styles.mobileProfileBlock}>
+                    <div className={styles.mobileProfileInfo}>
+                      <img 
+                        src={userRole === 'client' 
+                          ? "/images/client_avatar.png"
+                          : "/images/joko_portrait.png"
+                        } 
+                        alt="Foto Profil" 
+                        className={styles.profileAvatar}
+                      />
+                      <div className={styles.profileText}>
+                        <span className={styles.profileName}>
+                          {userRole === 'client' ? 'Budi Santoso' : 'Pak Joko Susilo'}
+                        </span>
+                        <span className={styles.profileRole}>
+                          {userRole === 'client' ? 'Pemilik Rumah' : 'Mitra Mandor'}
+                        </span>
+                      </div>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      onClick={() => { onLogout(); setMobileMenuOpen(false); }}
+                      style={{ width: '100%', justifyContent: 'center', marginTop: '0.75rem' }}
+                    >
+                      Keluar Akun
+                    </Button>
+                  </div>
+                ) : (
+                  <Button
+                    variant="primary"
+                    size="md"
+                    onClick={() => { onViewChange('login'); setMobileMenuOpen(false); }}
+                    style={{ width: '100%', justifyContent: 'center' }}
+                  >
+                    Masuk / Daftar
+                  </Button>
+                )}
+              </li>
+            </ul>
           </div>
         )}
-        <div 
-          className={`${styles.bottomNavItem} ${(currentView === 'workspace' || currentView === 'dashboard') ? styles.bottomNavItemActive : ''}`}
-          onClick={() => onViewChange(isLoggedIn ? 'dashboard' : 'workspace')}
-          role="link"
-          tabIndex={0}
-          aria-label="Buka Workspace Proyek Anda"
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onViewChange(isLoggedIn ? 'dashboard' : 'workspace'); }}
-        >
-          <ClipboardList size={20} />
-          <span>Workspace</span>
-        </div>
-      </nav>
+      </header>
     </>
   );
 };

@@ -129,10 +129,6 @@ img, svg {
 }
 
 @media (max-width: 767px) {
-  body {
-    padding-bottom: 74px; /* Buffer space for the 64px bottom nav */
-  }
-
   .container {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -144,4 +140,3 @@ img, svg {
   h3 { font-size: 1.3rem; }
   h4 { font-size: 1.15rem; }
 }
-

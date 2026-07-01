@@ -126,3 +126,41 @@
 .bottomLink:hover {
   color: var(--gray-300);
 }
+
+/* Footer Responsive Overrides */
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding: 3rem 0 2rem 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .brandCol {
+    gap: 1rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+    align-items: center;
+    padding-top: 1.5rem;
+  }
+
+  .bottomLinks {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

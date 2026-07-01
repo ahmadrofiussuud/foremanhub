@@ -1,0 +1,132 @@
+.authContainer {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.headerArea {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.headerArea h1 {
+  font-size: 2.5rem;
+  color: var(--color-primary-dark);
+}
+
+.headerArea p {
+  color: var(--gray-500);
+  font-size: 1.1rem;
+}
+
+.roleSelectionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.roleCard {
+  cursor: pointer;
+  text-align: center;
+  align-items: center;
+  gap: 1.25rem;
+  border-width: 2px !important;
+  transition: all var(--transition-normal);
+}
+
+.clientCard:hover {
+  border-color: var(--color-accent) !important;
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.mandorCard:hover {
+  border-color: var(--color-primary) !important;
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.iconCircle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.clientCircle {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-dark);
+}
+
+.mandorCircle {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.roleCard h3 {
+  font-size: 1.4rem;
+  color: var(--gray-900);
+}
+
+.roleCard p {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+.profileIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #FFF8F0;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-accent-light);
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.profileIndicator img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.profileMeta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.profileName {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--gray-900);
+}
+
+.profileDesc {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+@media (max-width: 767px) {
+  .roleSelectionGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .headerArea h1 {
+    font-size: 2rem;
+  }
+}

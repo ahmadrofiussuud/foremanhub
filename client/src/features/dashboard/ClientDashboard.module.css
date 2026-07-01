@@ -1,0 +1,116 @@
+.welcomeBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #F5EFEB;
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem !important;
+}
+
+.statIconWrapper {
+  padding: 0.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.projectCard {
+  padding: 2rem !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.progressBarTrack {
+  height: 8px;
+  background-color: var(--gray-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projectFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1.5px dashed var(--gray-200);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.secondaryCard {
+  padding: 1.75rem !important;
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Tablet Overrides */
+@media (max-width: 767px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .welcomeBanner {
+    padding: 1.5rem;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .welcomeBanner button {
+    width: 100%;
+  }
+
+  .projectHeader {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .projectFooter {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .projectFooter button {
+    width: 100%;
+  }
+}
